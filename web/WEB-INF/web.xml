@@ -31,6 +31,18 @@
         <servlet-name>LogoutOwnerServlet</servlet-name>
         <servlet-class>login_registration.LogoutOwnerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetUsernameServlet</servlet-name>
+        <servlet-class>utils.GetUsernameServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddVenueServlet</servlet-name>
+        <servlet-class>venue.AddVenueServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetUserName</servlet-name>
+        <servlet-class>utils.GetUserName</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterOwnerServlet</servlet-name>
         <url-pattern>/RegisterOwnerServlet</url-pattern>
@@ -58,6 +70,14 @@
     <servlet-mapping>
         <servlet-name>LogoutOwnerServlet</servlet-name>
         <url-pattern>/LogoutOwnerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddVenueServlet</servlet-name>
+        <url-pattern>/AddVenueServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetUserName</servlet-name>
+        <url-pattern>/GetUserName</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -48,6 +48,11 @@
             .btn_container span:hover{
                 background-color: #F4EEE0;
             }
+            
+            #customerName{
+                font-weight: 700;
+                letter-spacing: 2px;
+            }
 
         </style>
     </head>
@@ -56,6 +61,20 @@
             alert("You are not allow for this page .... Login first");
             window.location.href = "LoginForCustomer.html";
         }
+        
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', "GetUserName", true);
+        var params = "table=customerTable&field=customerId&cookie=venuezar_customerId";
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                
+                var username = xhr.responseText;
+                console.log(xhr);
+                document.getElementById("customerName").innerHTML = username;
+            }
+        };
+        xhr.send(params);
 
         function callLogoutServlet() {
             var xhr = new XMLHttpRequest();
@@ -68,6 +87,7 @@
         <nav>
             <h1>Customer Dashboard</h1>
             <div class="btn_container">
+                <span id="customerName"></span>
                 <button onclick="callLogoutServlet()">Logout</button>
                 <span>
                     <img height="35px" width="35px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681549155/VenueZar/7853767_kashifarif_user_profile_person_account_icon_ko3zmf.svg" alt="profile"/>

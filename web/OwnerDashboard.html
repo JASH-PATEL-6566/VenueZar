@@ -12,12 +12,15 @@
                 font-family: 'Roboto', sans-serif;
             }
             nav{
-                border: 2px solid black;
+                /*border: 2px solid black;*/
+                position: sticky;
+                top: 0;
+                background: white;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 padding: .3em 1em;
-                height: 3.5em;
+                height: 50px;
             }
 
             .btn_container{
@@ -49,14 +52,60 @@
                 background-color: #F4EEE0;
             }
 
+            .main_screen{
+                height: calc(100vh - 50px);
+                /*border: 2px solid black;*/
+            }
+
+            .add_container{
+                /*border: 2px solid black;*/
+                /*height: 3em;*/
+                display: flex;
+                padding: 1em 0 0 1.9em;
+
+            }
+
+            .add_container a{
+                padding: .5em .8em;
+                border-radius: .3em;
+                background-color: #2F58CD;
+                color : white;
+                cursor: pointer;
+                border: none;
+                font-size: 1.01em;
+                text-decoration: none;
+            }
+            
+            #ownerName{
+                font-weight: 700;
+                letter-spacing: 2px;
+            }
+
         </style>
     </head>
     <script>
+        //protected routing
         if (document.cookie.indexOf("venuezar_id") === -1) {
             alert("You are not allow for this page .... Login first");
             window.location.href = "LoginForOwner.html";
         }
 
+        // fetch username for navbar
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', "GetUserName", true);
+        var params = "table=ownerTable&field=ownerId&cookie=venuezar_id";
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                
+                var username = xhr.responseText;
+                console.log(xhr);
+                document.getElementById("ownerName").innerHTML = username;
+            }
+        };
+        xhr.send(params);
+
+        //logout
         function callLogoutServlet() {
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "LogoutOwnerServlet", true);
@@ -68,11 +117,25 @@
         <nav>
             <h1>Owner Dashboard</h1>
             <div class="btn_container">
+                <span id="ownerName"></span>
                 <button onclick="callLogoutServlet()">Logout</button>
                 <span>
                     <img height="35px" width="35px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681549155/VenueZar/7853767_kashifarif_user_profile_person_account_icon_ko3zmf.svg" alt="profile"/>
                 </span>
             </div>
         </nav>
+        <div class="main_screen">
+            <div class="add_container">
+                <a href="./AddVenueForm.html">
+                    <span>
+                        Add Venue
+                    </span>
+                </a>
+            </div>
+            <div class="venueContainer">
+                
+            </div>
+        </div>
+
     </body>
 </html>
