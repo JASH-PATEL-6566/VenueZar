@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Customer Login Page | VenueZar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Roboto', sans-serif;
+            }
+            
+            .container{
+                display: flex;
+                align-items: center;
+                height: 100vh;
+            }
+            
+            .container div{
+                width: 50%;
+                height: 100%;
+            }
+            
+            .img_container{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            h1{
+                margin-bottom: 10px;
+            }
+            
+            .form_container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            form{
+                padding: 1em;
+            }
+            
+            form,table{
+                /*border: 2px solid black;*/
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                
+            }
+            td{
+                font-weight: 600;
+            }
+            
+            input{
+                border: none;
+                font-size: 1.08em;
+                padding: 0.5em 0.8em;
+                width: 14em;
+                border-radius: .3em;
+                /*border: 1px solid black;*/
+                box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+                outline: none;
+            }
+            
+            button{
+                width: 50%;
+                border: none;
+                font-size: 1.1em;
+                align-self: center;
+                padding: .5em .8em;
+                border-radius: .3em;
+                background-color: #2F58CD;
+                color : white;
+                cursor: pointer;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="img_container">
+                <img src="https://res.cloudinary.com/dreamlist/image/upload/v1681485863/VenueZar/Registration_gqyvxb.webp" alt="loginImage" height="500px" width="500px" />
+            </div>
+            <div class="form_container">
+                <h1>Owner Login</h1>
+                <form action="LoginOwnerServlet" method="post">
+                    <table cellspacing="20px">
+                        <tr>
+                            <td>Username : </td>
+                            <td><input type="text" name="username" placeholder="Enter Your Username"></td>
+                        </tr>
+                        <tr>
+                            <td>Password : </td>
+                            <td><input type="password" name="password" placeholder="Enter Your Password"></td>
+                        </tr>
+                    </table>
+                    <button type="submit">Login</button>
+                </form>
+                <span>You don't have an account? <a href="./RegisterForOwner.html">Register</a></span>
+            </div>
+        </div>
+    </body>
+</html>
