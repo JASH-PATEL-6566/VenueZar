@@ -22,7 +22,7 @@ public class RegisterCustomerServlet extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         //generate random id
-        String customerId = UUID.randomUUID().toString();
+        String customerId = UUID.randomUUID().toString().replace("-", "_");
         
         //get all the data from request
         String username = request.getParameter("username");

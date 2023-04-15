@@ -14,6 +14,7 @@ import utils.PasswordHasher;
 import java.sql.*;
 import utils.AlertMessage;
 import utils.UserAuthenticat;
+import javax.servlet.http.Cookie;
 
 public class LoginOwnerServlet extends HttpServlet {
     
@@ -28,7 +29,10 @@ public class LoginOwnerServlet extends HttpServlet {
         String password = request.getParameter("password");
         
         try{
-            if(UserAuthenticat.authenticat("ownerTable", password, username)){
+            String ownerId = UserAuthenticat.authenticat("ownerTable", password, username,"ownerId");
+            if(ownerId != ""){
+                Cookie venuezarCookie = new Cookie("venuezar_id", ownerId);
+                response.addCookie(venuezarCookie);
                 response.sendRedirect("OwnerDashboard.html");
             }
             else{

@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserAuthenticat {
-    public static boolean authenticat(String table,String inputPassword,String username) throws NoSuchAlgorithmException, SQLException {
+    public static String authenticat(String table,String inputPassword,String username,String idFiled) throws NoSuchAlgorithmException, SQLException {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             String user = "root";
@@ -22,16 +22,20 @@ public class UserAuthenticat {
             ResultSet set = stmt.executeQuery();
             if(set.next()){
                 String store = set.getString("password");
+                String userId = set.getString(idFiled);
                 boolean login = PasswordHasher.comparePasswords(inputPassword, store);
-                return login;
+                if(login){
+                    return userId;
+                }
             }
             else{
-                return false;
+                return "";
             }
         }
         catch (ClassNotFoundException ex) {
             Logger.getLogger(UserAuthenticat.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return "";
         }
+        return "";
     }
 }

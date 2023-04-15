@@ -22,7 +22,8 @@ public class RegisterOwnerServlet extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         //generate random id
-        String ownerId = UUID.randomUUID().toString();
+        String ownerId = UUID.randomUUID().toString().replace("-", "_");;
+        
         
         //get all the data from request
         String username = request.getParameter("username");

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import utils.PasswordHasher;
 import java.sql.*;
+import javax.servlet.http.Cookie;
 import utils.AlertMessage;
 import utils.UserAuthenticat;
 
@@ -28,7 +29,10 @@ public class LoginCustomerServlet extends HttpServlet {
         String password = request.getParameter("password");
         
         try{
-            if(UserAuthenticat.authenticat("customerTable", password, username)){
+            String customerId = UserAuthenticat.authenticat("customerTable", password, username,"customerId");
+            if(customerId != ""){
+                Cookie venuezarCookie = new Cookie("venuezar_customerId", customerId);
+                response.addCookie(venuezarCookie);
                 response.sendRedirect("CustomerDashboard.html");
             }
             else{

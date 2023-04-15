@@ -5,56 +5,56 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            
+
             *{
                 margin: 0;
                 padding: 0;
                 font-family: 'Roboto', sans-serif;
             }
-            
+
             .container{
                 display: flex;
                 align-items: center;
                 height: 100vh;
             }
-            
+
             .container div{
                 width: 50%;
                 height: 100%;
             }
-            
+
             .img_container{
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-            
+
             h1{
                 margin-bottom: 10px;
             }
-            
+
             .form_container{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
             }
-            
+
             form{
                 padding: 1em;
             }
-            
+
             form,table{
                 /*border: 2px solid black;*/
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
-                
+
             }
             td{
                 font-weight: 600;
             }
-            
+
             input{
                 border: none;
                 font-size: 1.08em;
@@ -65,7 +65,7 @@
                 box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
                 outline: none;
             }
-            
+
             button{
                 width: 50%;
                 border: none;
@@ -77,9 +77,14 @@
                 color : white;
                 cursor: pointer;
             }
-            
+
         </style>
     </head>
+    <script>
+        if (document.cookie.indexOf("venuezar_id") !== -1) {
+            window.location.href = "OwnerDashboard.html";
+        }
+    </script>
     <body>
         <div class="container">
             <div class="img_container">
@@ -104,4 +109,5 @@
             </div>
         </div>
     </body>
+    
 </html>
