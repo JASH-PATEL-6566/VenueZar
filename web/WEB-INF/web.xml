@@ -23,6 +23,14 @@
         <servlet-name>RedirectBasedOnCookie</servlet-name>
         <servlet-class>cookie.RedirectBasedOnCookie</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutCustomerServlet</servlet-name>
+        <servlet-class>login_registration.LogoutCustomerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutOwnerServlet</servlet-name>
+        <servlet-class>login_registration.LogoutOwnerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterOwnerServlet</servlet-name>
         <url-pattern>/RegisterOwnerServlet</url-pattern>
@@ -42,6 +50,14 @@
     <servlet-mapping>
         <servlet-name>RedirectBasedOnCookie</servlet-name>
         <url-pattern>/RedirectBasedOnCookie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutCustomerServlet</servlet-name>
+        <url-pattern>/LogoutCustomerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutOwnerServlet</servlet-name>
+        <url-pattern>/LogoutOwnerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

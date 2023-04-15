@@ -1,11 +1,78 @@
 <!DOCTYPE html>
+
 <html>
     <head>
         <title>Owner Dashboard | VenueZar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Roboto', sans-serif;
+            }
+            nav{
+                border: 2px solid black;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: .3em 1em;
+                height: 3.5em;
+            }
+
+            .btn_container{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .btn_container button{
+                padding: .5em .8em;
+                border-radius: .3em;
+                background-color: #2F58CD;
+                color : white;
+                cursor: pointer;
+                border: none;
+                font-size: 1.01em;
+            }
+
+            .btn_container span{
+                /*border: 2px solid black;*/
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .btn_container span:hover{
+                background-color: #F4EEE0;
+            }
+
+        </style>
     </head>
+    <script>
+        if (document.cookie.indexOf("venuezar_id") === -1) {
+            alert("You are not allow for this page .... Login first");
+            window.location.href = "LoginForOwner.html";
+        }
+
+        function callLogoutServlet() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "LogoutOwnerServlet", true);
+            xhr.send();
+            window.location.href = "LoginForOwner.html";
+        }
+    </script>
     <body>
-        <h1>Owner Dashboard</h1>
+        <nav>
+            <h1>Owner Dashboard</h1>
+            <div class="btn_container">
+                <button onclick="callLogoutServlet()">Logout</button>
+                <span>
+                    <img height="35px" width="35px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681549155/VenueZar/7853767_kashifarif_user_profile_person_account_icon_ko3zmf.svg" alt="profile"/>
+                </span>
+            </div>
+        </nav>
     </body>
 </html>
