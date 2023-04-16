@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>Booking Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Roboto', sans-serif;
+            }
+            .main_screen{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .main_screen div{
+                background-color: #D8D8D8;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                /*border: 2px solid red;*/
+                gap: 10px;
+                padding: 2em;
+                border-radius: 0.6em;
+                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            input[type="date"],
+            select{
+                font-size: 1.06em;
+                padding: .3em .6em;
+                border: none;
+                border-radius: .3em;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+                outline: none;
+                width: 17em;
+            }
+
+            button{
+                padding: .5em .8em;
+                border-radius: .3em;
+                background-color: #2F58CD;
+                color : white;
+                cursor: pointer;
+                border: none;
+                font-size: 1.01em;
+            }
+
+            table td{
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <script>
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const owner = urlParams.get('owner');
+            const venue = urlParams.get('venue');
+            if (owner && venue) {
+                document.cookie = "owner=" + owner;
+                document.cookie = "venue=" + venue;
+                window.location.href = "http://localhost:9494/Venuezar/BookingForm.html";
+            }
+        }
+
+    </script>
+    <body>
+        <div class="main_screen">
+            <div>
+                <h1 id="formName">Booking Form</h1>
+                <form id="myForm" action="BookingVenueServlet" method="post">
+                    <table cellspacing="20px">
+                        <tr>
+                            <td>Slot : </td>
+                            <td>
+                                <select name="slot" id="select">
+                                    <option selected>---select---</option>
+                                    <option value="M">Morning</option>
+                                    <option value="E">Evening</option>
+                                    <option value="H">Whole day</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Booking Date : </td>
+                            <td><input required id="dateInput" type="date" name="date" placeholder="booking date"></td>
+                        </tr>
+                    </table>
+                    <button type="submit" >Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById('dateInput').setAttribute('min', today);
+    </script>
+</html>

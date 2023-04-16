@@ -86,7 +86,7 @@ public class FetchCustomerSideContent extends HttpServlet {
 "                            </span>\n" +
 "                        </div>\n" +
 "                        <p class=\"phone\"><img src=\"https://res.cloudinary.com/dreamlist/image/upload/v1681628746/VenueZar/352510_local_phone_icon_noxex3.svg\" alt=\"phone\"/> "+phone+"</p>\n" +
-"                        <button venue=\""+venueId+"\" owner=\""+ownerId+"\" class=\"book_btn\">Book Now</button>\n" +
+"                        <button class=\"book_btn\"><a href=\"BookingForm.html?owner="+ownerId+"&venue="+venueId+"&name="+name+"\">Book Now</a></button>\n" +
 "                    </div>\n" +
 "                </div>"; 
                 

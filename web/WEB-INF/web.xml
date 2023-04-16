@@ -51,6 +51,10 @@
         <servlet-name>FetchCustomerSideContent</servlet-name>
         <servlet-class>venue.FetchCustomerSideContent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BookingVenueServlet</servlet-name>
+        <servlet-class>booking.BookingVenueServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterOwnerServlet</servlet-name>
         <url-pattern>/RegisterOwnerServlet</url-pattern>
@@ -94,6 +98,10 @@
     <servlet-mapping>
         <servlet-name>FetchCustomerSideContent</servlet-name>
         <url-pattern>/FetchCustomerSideContent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookingVenueServlet</servlet-name>
+        <url-pattern>/BookingVenueServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
