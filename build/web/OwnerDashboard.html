@@ -13,14 +13,20 @@
             }
             nav{
                 /*border: 2px solid black;*/
-                position: sticky;
-                top: 0;
-                background: white;
+
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 padding: .3em 1em;
                 height: 50px;
+            }
+
+            .sticky_part{
+                position: fixed;
+                position: sticky;
+                top: 0;
+                background: white;
+                z-index: 11111;
             }
 
             .btn_container{
@@ -53,19 +59,113 @@
             }
 
             .main_screen{
-                height: calc(100vh - 50px);
+                position: relative;
+                height: fit-content;
                 /*border: 2px solid black;*/
             }
 
             .add_container{
                 /*border: 2px solid black;*/
                 /*height: 3em;*/
-                display: flex;
-                padding: 1em 0 0 1.9em;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 111111;
+                padding: .5em;
+                border-radius: .5em;
+                background-color: #2F58CD;
+                cursor: pointer;
+                border: none;
+                font-size: 1.01em;
+
 
             }
 
             .add_container a{
+                color : black;
+                font-weight: 600;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap : 5px;
+            }
+
+            .add_container a img{
+                height: 25px;
+                width: 25px;
+            }
+
+            #ownerName{
+                font-weight: 700;
+                letter-spacing: 2px;
+            }
+
+            .venueContainer{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                /*width: 100%;*/
+                padding: 1em;
+                /*border: 2px solid black;*/
+            }
+
+            .venue_card{
+                position: relative;
+                width: 23.5%;
+                display: flex;
+                flex-direction: column;
+                /*border: 2px solid black;*/
+                border-radius: 1em;
+                overflow: hidden;
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            }
+
+            .venue_card .img_container{
+                width: 100%;
+                height: 10em;
+                /*border: 2px solid red;*/
+            }
+
+            .venue_card .img_container img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+
+            .venue_card .info_container{
+                /*border: 2px solid blue;*/
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: .4em .7em;
+                gap: 7px;
+            }
+
+            .info_container .price{
+                display: flex;
+                align-items: flex-end;
+                gap: 5px;
+                font-size: .8em;
+            }
+
+            .info_container h3{
+                font-size: 1.5em;
+            }
+
+            .phone{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .phone img{
+                height: 20px;
+                width: 20px;
+            }
+
+            .info_container button{
+                align-self: flex-end;
                 padding: .5em .8em;
                 border-radius: .3em;
                 background-color: #2F58CD;
@@ -73,12 +173,41 @@
                 cursor: pointer;
                 border: none;
                 font-size: 1.01em;
-                text-decoration: none;
             }
-            
-            #ownerName{
-                font-weight: 700;
-                letter-spacing: 2px;
+
+            .absolute_btn{
+                position: absolute;
+                top: 5px;
+                right: 7px;
+                display: flex;
+                gap: 5px;
+            }
+
+
+
+            .absolute_btn span img{
+                height: 30px;
+                widows:30px;
+            }
+
+            .absolute_btn span {
+                padding: .1em;
+            }
+
+            .absolute_btn a span,
+            .absolute_btn span{
+                background-color: white;
+                opacity: .8;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+
+            .absolute_btn a span:hover,
+            .absolute_btn span:hover{
+                opacity: 1;
             }
 
         </style>
@@ -95,15 +224,32 @@
         xhr.open('POST', "GetUserName", true);
         var params = "table=ownerTable&field=ownerId&cookie=venuezar_id";
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        let username = "";
         xhr.onload = function () {
             if (xhr.status === 200) {
-                
-                var username = xhr.responseText;
-                console.log(xhr);
+                username = xhr.responseText;
                 document.getElementById("ownerName").innerHTML = username;
             }
         };
         xhr.send(params);
+
+
+        // fetch Content
+        let xh = new XMLHttpRequest();
+        var url = "FetchOwnerSideContent";
+        params = "field=ownerId&cookie=venuezar_id";
+        xh.open("POST", url, true);
+        xh.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xh.onreadystatechange = function () {
+            if (xh.readyState == 4 && xh.status == 200) {
+                var div = document.createElement("div");
+                div.innerHTML = xh.responseText;
+                div.className = "venueContainer";
+                document.querySelector(".main_screen").appendChild(div);
+            }
+        };
+        xh.send(params);
+
 
         //logout
         function callLogoutServlet() {
@@ -114,28 +260,52 @@
         }
     </script>
     <body>
-        <nav>
-            <h1>Owner Dashboard</h1>
-            <div class="btn_container">
-                <span id="ownerName"></span>
-                <button onclick="callLogoutServlet()">Logout</button>
-                <span>
-                    <img height="35px" width="35px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681549155/VenueZar/7853767_kashifarif_user_profile_person_account_icon_ko3zmf.svg" alt="profile"/>
-                </span>
-            </div>
-        </nav>
-        <div class="main_screen">
-            <div class="add_container">
-                <a href="./AddVenueForm.html">
+        <div class="sticky_part">
+            <nav>
+                <h1>Owner Dashboard</h1>
+                <div class="btn_container">
+                    <span id="ownerName"></span>
+                    <button onclick="callLogoutServlet()">Logout</button>
                     <span>
-                        Add Venue
+                        <img height="35px" width="35px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681549155/VenueZar/7853767_kashifarif_user_profile_person_account_icon_ko3zmf.svg" alt="profile"/>
                     </span>
-                </a>
-            </div>
-            <div class="venueContainer">
-                
-            </div>
+                </div>
+            </nav>
         </div>
+        <button class="add_container">
+            <a href="./AddVenueForm.html">
+                <img src="https://res.cloudinary.com/dreamlist/image/upload/v1681630030/VenueZar/4879897_add_new_plus_icon_muky0d.svg" alt="add_button"/>
+                Add Venue
+            </a>
+        </button>
+        <div class="main_screen" id="main_screen">
+            <div class="venueContainer" id="vanueContainer">
+                <!--                <div class="venue_card">
+                                    <div class="img_container">
+                                        <img src="https://res.cloudinary.com/dreamlist/image/upload/v1681624096/VenueZar/demo_venue_ibiyou.jpg" alt="demo_img"/>
+                                    </div>
+                                    <div class="info_container">
+                                        <h2>Name</h2>
+                                        <p>area , city</p>
+                                        <span class="price">
+                                            <h3>10000 ₹</h3>
+                                            food included
+                                        </span>
+                                        <div class="absolute_btn">
+                                            <a href="https://www.google.com" target="_blank">
+                                                <span>
+                                                    <img src="https://res.cloudinary.com/dreamlist/image/upload/v1681627121/VenueZar/1737383_gps_location_locationpin2_pin_icon_m8kj2a.svg" alt="location"/>
+                                                </span>
+                                            </a>
+                                            <span class="delete">
+                                                <img src="https://res.cloudinary.com/dreamlist/image/upload/v1681628412/VenueZar/352303_delete_icon_vzzr5m.svg" alt="location"/>
+                                            </span>
+                                        </div>
+                                        <p class="phone"><img src="https://res.cloudinary.com/dreamlist/image/upload/v1681628746/VenueZar/352510_local_phone_icon_noxex3.svg" alt="phone"/> 6353887366</p>
+                                        <button>Edit</button>
+                                    </div>
+                                </div>-->
+            </div>
 
     </body>
 </html>
