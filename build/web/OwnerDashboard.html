@@ -210,7 +210,29 @@
             .absolute_btn span:hover{
                 opacity: 1;
             }
-
+            
+            .notification{
+                position: relative;
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+                border-radius: 0px; 
+                padding: .6em
+            }
+            
+            .notification span{
+                position: absolute;
+                opacity: .9;
+                font-weight: 600;
+                background-color: red;
+                height: 20px;
+                width: 20px;
+                top: 0;
+                right: 0;
+            }
+            
+            .noNotification{
+                display: none !important;
+            }
+            
         </style>
     </head>
     <script>
@@ -233,6 +255,23 @@
             }
         };
         xhr.send(params);
+        
+        // fetch number of notifications
+        let notir = new XMLHttpRequest();
+        notir.open('POST', "GetNumberOfNotification", true);
+        var params = "cookie=venuezar_id";
+        notir.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        notir.onload = function () {
+            if (notir.status === 200) {
+                numberOfNotification = notir.responseText;
+                if(parseInt(numberOfNotification) > 0){
+                    document.querySelector(".dot").classList.remove('noNotification');
+                    document.querySelector(".dot").innerHTML = numberOfNotification;
+                }
+                console.log(numberOfNotification);
+            }
+        };
+        notir.send(params);
 
 
         // fetch Content
@@ -267,6 +306,10 @@
                 <div class="btn_container">
                     <span id="ownerName"></span>
                     <button onclick="callLogoutServlet()">Logout</button>
+                    <span class="notification" title="bookings">
+                        <img height="25px" width="25px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681746923/VenueZar/3209363_booking_calendar_date_day_month_icon_m8fqot.svg" alt="booking"/>
+                        <span class="dot noNotification"></span>
+                    </span>
                     <span>
                         <img height="35px" width="35px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681549155/VenueZar/7853767_kashifarif_user_profile_person_account_icon_ko3zmf.svg" alt="profile"/>
                     </span>

@@ -4,10 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/BookingForm.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/GetUserName.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/booking/BookingVenueServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/home.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/OwnerDashboard.html</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/GetCookieValue.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/login_registration/LogoutCustomerServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/GetNumberOfNotification.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/CustomerDashboard.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/LoginForCustomer.html</file>
         </group>
     </open-files>
 </project-private>
