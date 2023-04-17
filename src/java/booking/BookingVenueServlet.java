@@ -31,8 +31,8 @@ public class BookingVenueServlet extends HttpServlet {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
-            String venueId = GetCookieValue.getValue("owner", request);
-            String ownerId = GetCookieValue.getValue("venue", request);
+            String ownerId = GetCookieValue.getValue("owner", request);
+            String venueId = GetCookieValue.getValue("venue", request);
             String customerId = GetCookieValue.getValue("venuezar_customerId", request);
             Class.forName("com.mysql.cj.jdbc.Driver");
             String user = "root";
