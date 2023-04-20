@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -30,6 +31,7 @@ public class BookingVenueServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         Connection conn = null;
         PreparedStatement stmt = null;
+        PreparedStatement stmt_check = null;
         try {
             String ownerId = GetCookieValue.getValue("owner", request);
             String venueId = GetCookieValue.getValue("venue", request);
@@ -38,6 +40,21 @@ public class BookingVenueServlet extends HttpServlet {
             String user = "root";
             String pass = "Viral@6566";
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/venuezar", user, pass);
+
+            stmt_check = conn.prepareStatement("select * from bookingTable where venueId=? and date=?");
+            stmt_check.setString(1, venueId);
+            stmt_check.setString(2, date);
+
+            ResultSet set_check = stmt_check.executeQuery();
+
+            if (set_check.next()) {
+                String slot_fetch = set_check.getString("slot");
+                if (slot_fetch.equals(slot) || slot_fetch.equals("H") || slot.equals("H")) {
+                    String res = AlertMessage.alertMessage("Venue is already booked ........ look for another date or slot", "CustomerDashboard.html");
+                    out.print(res);
+                    return;
+                }
+            }
             stmt = conn.prepareStatement("INSERT INTO bookingTable VALUES (?, ?, ?, ?, ?, ?)");
             stmt.setString(1, bookingId);
             stmt.setString(2, customerId);
@@ -61,6 +78,7 @@ public class BookingVenueServlet extends HttpServlet {
                 String res = AlertMessage.alertMessage("Booking of venue is faild....... Please try again.", "CustomerDashboard.html");
                 out.print(res);
             }
+
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(BookingVenueServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

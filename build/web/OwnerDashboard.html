@@ -298,6 +298,11 @@
             xhr.send();
             window.location.href = "LoginForOwner.html";
         }
+        
+        // redirect
+        function redirectToBOokings(){
+            window.location.href = "BookingsPage.html";
+        }
     </script>
     <body>
         <div class="sticky_part">
@@ -306,7 +311,7 @@
                 <div class="btn_container">
                     <span id="ownerName"></span>
                     <button onclick="callLogoutServlet()">Logout</button>
-                    <span class="notification" title="bookings">
+                    <span class="notification" title="bookings" onclick="redirectToBOokings()">
                         <img height="25px" width="25px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681746923/VenueZar/3209363_booking_calendar_date_day_month_icon_m8fqot.svg" alt="booking"/>
                         <span class="dot noNotification"></span>
                     </span>

@@ -59,6 +59,10 @@
         <servlet-name>GetNumberOfNotification</servlet-name>
         <servlet-class>utils.GetNumberOfNotification</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BookingsServlet</servlet-name>
+        <servlet-class>booking.BookingsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterOwnerServlet</servlet-name>
         <url-pattern>/RegisterOwnerServlet</url-pattern>
@@ -110,6 +114,10 @@
     <servlet-mapping>
         <servlet-name>GetNumberOfNotification</servlet-name>
         <url-pattern>/GetNumberOfNotification</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookingsServlet</servlet-name>
+        <url-pattern>/BookingsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

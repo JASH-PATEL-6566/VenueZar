@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Customer Dashboard | VenueZar</title>
+        <title>Bookings Page | VenueZar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -220,15 +220,15 @@
     </head>
     <script>
         //protected routing
-        if (document.cookie.indexOf("venuezar_customerId") === -1) {
+        if (document.cookie.indexOf("venuezar_id") === -1) {
             alert("You are not allow for this page .... Login first");
-            window.location.href = "LoginForCustomer.html";
+            window.location.href = "LoginForOwner.html";
         }
 
         // fetch username for navbar
         let xhr = new XMLHttpRequest();
         xhr.open('POST', "GetUserName", true);
-        var params = "table=customerTable&field=customerId&cookie=venuezar_customerId";
+        var params = "table=ownerTable&field=ownerId&cookie=venuezar_id";
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         let username = "";
         xhr.onload = function () {
@@ -242,11 +242,11 @@
 
         // fetch Content
         let xh = new XMLHttpRequest();
-        var url = "FetchCustomerSideContent";
-        params = "field=customerId&cookie=venuezar_customerId";
+        var url = "BookingsServlet";
+        params_for = "cookie=venuezar_id";
         xh.open("POST", url, true);
         xh.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xh.onreadystatechange = function () {
+        xh.onload = function () {
             if (xh.readyState == 4 && xh.status == 200) {
                 var div = document.createElement("div");
                 div.innerHTML = xh.responseText;
@@ -254,33 +254,11 @@
                 document.querySelector(".main_screen").appendChild(div);
             }
         };
-        xh.send(params);
-
-
-        // book venue....
-        function bookVenue(event) {
-            const owner = event.target.getAttribute('owner');
-            const venue = event.target.getAttribute('venue');
-
-            let bookr = new XMLHttpRequest();
-            var url = "BookingVenueServlet";
-            params = "owner="+owner+"&venue="+venue;
-            bookr.open("POST", url, true);
-            bookr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            bookr.onreadystatechange = function () {
-                if (xh.readyState == 4 && xh.status == 200) {
-                    console.log(xh.responseText);
-                }
-            };
-            bookr.send(params);
-        }
+        xh.send(params_for);
 
         //logout
-        function callLogoutServlet() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "LogoutCustomerServlet", true);
-            xhr.send();
-            window.location.href = "LoginForCustomer.html";
+        function backPage() {
+            window.location.href = "OwnerDashboard.html";
         }
     </script>
     <body>
@@ -289,7 +267,7 @@
                 <h1>Customer Dashboard</h1>
                 <div class="btn_container">
                     <span id="customerName"></span>
-                    <button onclick="callLogoutServlet()">Logout</button>
+                    <button onclick="backPage()"> &lt; Back</button>
                     <span>
                         <img height="35px" width="35px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681549155/VenueZar/7853767_kashifarif_user_profile_person_account_icon_ko3zmf.svg" alt="profile"/>
                     </span>
@@ -297,7 +275,7 @@
             </nav>
         </div>
         <div class="main_screen" id="main_screen">
-            <div class="venueContainer" id="vanueContainer"></div>
+            <!--<div class="venueContainer" id="vanueContainer"></div>-->
         </div>
     </body>
 </html>
