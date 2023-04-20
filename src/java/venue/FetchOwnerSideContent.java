@@ -48,6 +48,7 @@ public class FetchOwnerSideContent extends HttpServlet {
             ResultSet set = stmt.executeQuery();
 //            set.next();
             while(set.next()) {
+                String venueId = set.getString("id");
                 String name = set.getString("name");
                 String area = set.getString("area");
                 String city = set.getString("city");
@@ -79,9 +80,9 @@ public class FetchOwnerSideContent extends HttpServlet {
 "                                    <img src=\"https://res.cloudinary.com/dreamlist/image/upload/v1681627121/VenueZar/1737383_gps_location_locationpin2_pin_icon_m8kj2a.svg\" alt=\"location\"/>\n" +
 "                                </span>\n" +
 "                            </a>\n" +
-"                            <span class=\"delete\">\n" +
+"                            <button class=\"span\" onclick=\"deleteVenue(event)\" venueId="+venueId+">\n" +
 "                                <img src=\"https://res.cloudinary.com/dreamlist/image/upload/v1681628412/VenueZar/352303_delete_icon_vzzr5m.svg\" alt=\"location\"/>\n" +
-"                            </span>\n" +
+"                            </button>\n" +
 "                        </div>\n" +
 "                        <p class=\"phone\"><img src=\"https://res.cloudinary.com/dreamlist/image/upload/v1681628746/VenueZar/352510_local_phone_icon_noxex3.svg\" alt=\"phone\"/> "+phone+"</p>\n" +
 "                        <button>Edit</button>\n" +

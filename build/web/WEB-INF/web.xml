@@ -63,6 +63,10 @@
         <servlet-name>BookingsServlet</servlet-name>
         <servlet-class>booking.BookingsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteVenueServlet</servlet-name>
+        <servlet-class>venue.DeleteVenueServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterOwnerServlet</servlet-name>
         <url-pattern>/RegisterOwnerServlet</url-pattern>
@@ -118,6 +122,10 @@
     <servlet-mapping>
         <servlet-name>BookingsServlet</servlet-name>
         <url-pattern>/BookingsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteVenueServlet</servlet-name>
+        <url-pattern>/DeleteVenueServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
