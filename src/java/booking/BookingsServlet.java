@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import login_registration.RegisterOwnerServlet;
 import utils.GetCookieValue;
 import utils.GetUserName;
+import utils.IsDatePass;
 
 public class BookingsServlet extends HttpServlet {
 
@@ -46,6 +49,8 @@ public class BookingsServlet extends HttpServlet {
             String customerEmail = "";
             String date = "";
             String slot = "";
+            String todayDate = "";
+            boolean printNone = true;
 
             ResultSet set = stmt.executeQuery();
 
@@ -54,6 +59,23 @@ public class BookingsServlet extends HttpServlet {
                 String customer = set.getString("customerId");
                 date = set.getString("date");
                 slot = set.getString("slot");
+
+                Date todaydate = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-dd");
+                todayDate = formatter.format(todaydate);
+
+                boolean datePassed = IsDatePass.checkDates(date, todayDate);
+
+                if (datePassed) {
+                    PreparedStatement stmt_deleteVenue = conn.prepareStatement("delete from bookingTable where venueId = ? AND slot = ?");
+                    stmt_deleteVenue.setString(1, venue);
+                    stmt_deleteVenue.setString(2, slot);
+                    stmt_deleteVenue.execute();
+                    if (!set.next()) {
+                        response.getWriter().write("none");
+                    }
+                }
+                printNone = false;
 
                 PreparedStatement stmt_venueName = conn.prepareStatement("select * from venueTable where id = ?");
                 stmt_venueName.setString(1, venue);
@@ -99,6 +121,10 @@ public class BookingsServlet extends HttpServlet {
                         + "                </div>";
 
                 response_string = response_string.concat(response_new);
+            }
+            if (printNone) {
+                response.getWriter().write("none");
+                return;
             }
             response.getWriter().write(response_string);
 
