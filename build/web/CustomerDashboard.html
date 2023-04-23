@@ -175,7 +175,7 @@
                 border: none;
                 font-size: 1.01em;
             }
-            
+
             .info_container button a{
                 text-decoration: none;
                 color : white;
@@ -214,6 +214,15 @@
             .absolute_btn a span:hover,
             .absolute_btn span:hover{
                 opacity: 1;
+            }
+
+            .isFavorite{
+                background-color: #B01E28 !important;
+                opacity: 1 !important;
+            }
+
+            .isFavorite img{
+                filter: invert(100%);
             }
 
         </style>
@@ -264,7 +273,7 @@
 
             let bookr = new XMLHttpRequest();
             var url = "BookingVenueServlet";
-            params = "owner="+owner+"&venue="+venue;
+            params = "owner=" + owner + "&venue=" + venue;
             bookr.open("POST", url, true);
             bookr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             bookr.onreadystatechange = function () {
@@ -281,6 +290,25 @@
             xhr.open("GET", "LogoutCustomerServlet", true);
             xhr.send();
             window.location.href = "LoginForCustomer.html";
+        }
+
+        function addToFavorite(event) {
+            const venueId = event.currentTarget.getAttribute("venueId");
+            var favorite_r = new XMLHttpRequest();
+            var url = "AddFavoriteVenueServlet";
+            params = "venueId=" + venueId;
+            favorite_r.open("POST", url, true);
+            favorite_r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            favorite_r.onload = function () {
+                const res =  favorite_r.responseText;
+                if (favorite_r.status === 200) {
+                    if (res === "success") {
+                        window.location.href = "CustomerDashboard.html";
+                    }
+                }
+            };
+            favorite_r.send(params);
+
         }
     </script>
     <body>

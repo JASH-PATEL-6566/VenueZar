@@ -82,7 +82,7 @@
 
             }
 
-            .add_container a{
+            .add_container {
                 color : black;
                 font-weight: 600;
                 text-decoration: none;
@@ -92,7 +92,7 @@
                 gap : 5px;
             }
 
-            .add_container a img{
+            .add_container img{
                 height: 25px;
                 width: 25px;
             }
@@ -327,6 +327,10 @@
             };
             delete_r.send(params);
         }
+        
+        function addVenue(){
+            window.location.href = "AddVenueForm.html";
+        }
     </script>
     <body>
         <div class="sticky_part">
@@ -345,11 +349,12 @@
                 </div>
             </nav>
         </div>
-        <button class="add_container">
-            <a href="./AddVenueForm.html">
+        <button class="add_container" onclick="addVenue()">
+<!--        <a href="./AddVenueForm.html">-->
+            
                 <img src="https://res.cloudinary.com/dreamlist/image/upload/v1681630030/VenueZar/4879897_add_new_plus_icon_muky0d.svg" alt="add_button"/>
                 Add Venue
-            </a>
+            <!--</a>-->
         </button>
         <div class="main_screen" id="main_screen">
             <div class="venueContainer" id="vanueContainer"></div>

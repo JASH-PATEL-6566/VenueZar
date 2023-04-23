@@ -67,6 +67,10 @@
         <servlet-name>DeleteVenueServlet</servlet-name>
         <servlet-class>venue.DeleteVenueServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddFavoriteVenueServlet</servlet-name>
+        <servlet-class>venue.AddFavoriteVenueServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterOwnerServlet</servlet-name>
         <url-pattern>/RegisterOwnerServlet</url-pattern>
@@ -126,6 +130,10 @@
     <servlet-mapping>
         <servlet-name>DeleteVenueServlet</servlet-name>
         <url-pattern>/DeleteVenueServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddFavoriteVenueServlet</servlet-name>
+        <url-pattern>/AddFavoriteVenueServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

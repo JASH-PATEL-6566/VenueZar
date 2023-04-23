@@ -32,7 +32,7 @@ public class DeleteVenueServlet extends HttpServlet {
 
         //get all the data from request
         String venueId = request.getParameter("venueId");
-        response.getWriter().write(venueId);
+        
         Connection conn = null;
         PreparedStatement stmt = null;
         try {

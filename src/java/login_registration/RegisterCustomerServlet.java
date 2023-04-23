@@ -49,12 +49,11 @@ public class RegisterCustomerServlet extends HttpServlet {
                 String user = "root";
                 String pass = "Viral@6566";
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/venuezar", user, pass);
-                stmt = conn.prepareStatement("INSERT INTO customerTable VALUES (?, ?, ?, ?, ?)");
+                stmt = conn.prepareStatement("INSERT INTO customerTable VALUES (?, ?, ?, ?)");
                 stmt.setString(1, customerId);
                 stmt.setString(2, username);
                 stmt.setString(3, email);
                 stmt.setString(4, hashedPassword);
-                stmt.setString(5, "");
 
                 int rowsInserted = stmt.executeUpdate();
                 
