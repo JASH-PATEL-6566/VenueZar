@@ -10,7 +10,7 @@
                 padding: 0;
                 font-family: 'Roboto', sans-serif;
             }
-            
+
             nav{
                 display: flex;
                 align-items: center;
@@ -20,16 +20,22 @@
                 /*border : 2px solid black;*/
             }
             
+            h1{
+                color : white;
+                font-size: 2.5em;
+            }
+
             nav h1{
                 font-weight: 800;
-                font-size: 1.7em;
+                font-size: 1.9em;
+                color : black;
             }
-            
+
             .btn_container{
                 display: flex;
                 gap: 20px;
             }
-            
+
             .btn_container a{
                 /*border: 2px solid black;*/
                 padding: .5em .8em;
@@ -42,26 +48,183 @@
                 text-decoration: none;
                 color: white;
             }
+
+            .main_container {
+                /* border: 2px solid black; */
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                padding: 2.5em 2em 1em 2em;
+            }
+
+            .sub_conatiner,
+            .sub_conatiner_rev {
+                display: flex;
+                margin: 1em 0;
+                /*box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;*/
+            }
+
+            .sub_conatiner_rev {
+                flex-direction: row-reverse;
+            }
+
+            .content {
+                padding: 2em;
+            }
+
+            .content h1 {
+                font-size: 2.2em;
+            }
+
+            .content p {
+                font-size: 1.2em;
+                padding: 2em 0;
+            }
+
+            .img {
+                padding: 0 1em;
+            }
+
+            .img img{
+                mix-blend-mode : color-burn;
+            }
+
+            .img_main{
+                position: relative;
+            }
+
+            .navbar{
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: transparent;
+                backdrop-filter: blur(10px);
+                z-index: 999;
+            }
+            
+            .img_main{
+                background-color: black;
+                padding: 0;
+            }
+
+            .img_main img{
+                height: 100vh;
+                width: 100vw;
+                object-fit: cover;
+                opacity: 0.3; 
+                
+            }
+
+            .main_container_sub{
+                overflow-x: hidden;
+            }
+
+            .button-container {
+                position: absolute;
+                top: 50%;
+                left: 28%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+            
+            .btn_container p,.button-container h1 {
+                color: white;
+                letter-spacing: 3px;
+            }
+
+            .button-left,
+            .button-right {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                margin: 0 10px;
+                cursor: pointer;
+            }
+            
+            
         </style>
     </head>
     <body>
-        <div class="main_container">
-            <nav class="navbar">
-                <h1>VenueZar</h1>
-                <div class="btn_container">
+
+        <div class="main_container_sub">
+            <div class="img_main">
+                <img src="https://res.cloudinary.com/dreamlist/image/upload/v1683522618/VenueZar/bgvenue_wffiuk.jpg" alt="venue_backgroud"/>
+                <div class="button-container btn_container">
+                    <h1>Book Venue any time any where !</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus.</p>
+                </div>
+            </div>
+
+            <div class="navbar">
+                <nav>
+                    <h1>VenueZar</h1>
+                    <div class="btn_container">
                         <a href="./LoginForOwner.html">
                             <span>
-                            Owner Registration
+                                Owner Registration
                             </span>
                         </a>
                         <a href="./LoginForCustomer.html">
                             <span>
-                            Customer Registration
+                                Customer Registration
                             </span>
                         </a>
-                    
+                    </div
+                </nav>
+            </div>
+
+            <div class="main_container">
+                <div class="sub_conatiner">
+                    <div class="content">
+                        <h1>Easy to Manage!</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, magni. Sed non hic deleniti, illo temporibus minima molestias facilis enim placeat. Dolor ducimus similique totam laudantium magnam eveniet quod atque pariatur. Eaque, consequuntur eligendi!</p>
+                    </div>
+                    <div class="img">
+                        <Image
+                            src="https://res.cloudinary.com/dreamlist/image/upload/v1683520679/VenueZar/userFriendly_jvuilp.webp"
+                            width="300"
+                            height="300"
+                            alt="Management"
+                            priority="performance"
+                            />
+                    </div>
                 </div>
-            </nav>
+                <div class="sub_conatiner_rev">
+                    <div class="content">
+                        <h1>User Friendly Interface!</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, magni. Sed non hic deleniti, illo temporibus minima molestias facilis enim placeat. Dolor ducimus similique totam laudantium magnam eveniet quod atque pariatur. Eaque, consequuntur eligendi!</p>
+                    </div>
+                    <div class="img">
+                        <Image
+                            src="https://res.cloudinary.com/dreamlist/image/upload/v1683520678/VenueZar/easyToManage_xtiol4.webp"
+                            width="300"
+                            height="300"
+                            alt="Management"
+                            priority="performance"
+                            />
+                    </div>
+                </div>
+                <div class="sub_conatiner">
+                    <div class="content">
+                        <h1> always updating!</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, magni. Sed non hic deleniti, illo temporibus minima molestias facilis enim placeat. Dolor ducimus similique totam laudantium magnam eveniet quod atque pariatur. Eaque, consequuntur eligendi!</p>
+                    </div>
+                    <div class="img">
+                        <Image
+                            src="https://res.cloudinary.com/dreamlist/image/upload/v1683520677/VenueZar/alwaysImproving_nhjm74.webp"
+                            width="300"
+                            height="300"
+                            alt="Management"
+                            priority="performance"
+                            />
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

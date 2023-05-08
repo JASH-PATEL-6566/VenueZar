@@ -317,7 +317,6 @@
             var delete_r = new XMLHttpRequest();
             var url = "DeleteVenueServlet";
             params = "venueId=" + venueId;
-            console.log(venueId);
             delete_r.open("POST", url, true);
             delete_r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             delete_r.onload = function () {

@@ -32,6 +32,7 @@ public class LoginOwnerServlet extends HttpServlet {
             String ownerId = UserAuthenticat.authenticat("ownerTable", password, username,"ownerId");
             if(ownerId != ""){
                 Cookie venuezarCookie = new Cookie("venuezar_id", ownerId);
+                venuezarCookie.setMaxAge(7 * 24 * 60 * 60);
                 response.addCookie(venuezarCookie);
                 response.sendRedirect("OwnerDashboard.html");
             }

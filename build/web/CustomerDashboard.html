@@ -300,7 +300,7 @@
             favorite_r.open("POST", url, true);
             favorite_r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             favorite_r.onload = function () {
-                const res =  favorite_r.responseText;
+                const res = favorite_r.responseText;
                 if (favorite_r.status === 200) {
                     if (res === "success") {
                         window.location.href = "CustomerDashboard.html";
@@ -318,7 +318,7 @@
                 <div class="btn_container">
                     <span id="customerName"></span>
                     <button onclick="callLogoutServlet()">Logout</button>
-                    <span>
+                    <span title="profile">
                         <img height="35px" width="35px" src="https://res.cloudinary.com/dreamlist/image/upload/v1681549155/VenueZar/7853767_kashifarif_user_profile_person_account_icon_ko3zmf.svg" alt="profile"/>
                     </span>
                 </div>

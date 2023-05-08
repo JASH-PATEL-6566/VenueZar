@@ -32,6 +32,7 @@ public class LoginCustomerServlet extends HttpServlet {
             String customerId = UserAuthenticat.authenticat("customerTable", password, username,"customerId");
             if(customerId != ""){
                 Cookie venuezarCookie = new Cookie("venuezar_customerId", customerId);
+                venuezarCookie.setMaxAge(7 * 24 * 60 * 60);
                 response.addCookie(venuezarCookie);
                 response.sendRedirect("CustomerDashboard.html");
             }
