@@ -3,25 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/GetUserName.java</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/DeleteVenueServlet.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/booking/BookingVenueServlet.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/AddVenueForm.html</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/login_registration/RegisterCustomerServlet.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/FetchCustomerSideContent.java</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/FetchOwnerSideContent.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/GetNumberOfNotification.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/booking/BookingsServlet.java</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/AddFavoriteVenueServlet.java</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/login_registration/LoginCustomerServlet.java</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/IsDatePass.java</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/AddVenueServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/RegisterForOwner.html</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/PasswordHasher.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/home.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/login_registration/RegisterOwnerServlet.java</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/UserAuthenticat.java</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/OwnerDashboard.html</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/GetCookieValue.java</file>
-            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/CustomerDashboard.html</file>
             <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/login_registration/LoginOwnerServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/CustomerDashboard.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/BookingsPage.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/DeleteVenueServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/login_registration/RegisterCustomerServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/FetchOwnerSideContent.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/AddFavoriteVenueServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/BookingForm.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/login_registration/LoginCustomerServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/venue/AddVenueServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/OwnerDashboard.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/LoginForOwner.html</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/utils/GetCookieValue.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/src/java/login_registration/LogoutOwnerServlet.java</file>
+            <file>file:/C:/Users/JASH%20PATEL/OneDrive/Desktop/Project/Web-Projects/IMP%20Projects/venuezar/web/RegisterForCustomer.html</file>
         </group>
     </open-files>
 </project-private>

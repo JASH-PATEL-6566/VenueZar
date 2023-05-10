@@ -47,7 +47,7 @@ public class DeleteVenueServlet extends HttpServlet {
             int rowsAffected = stmt.executeUpdate();
 
             if (rowsAffected > 0) {
-                response.getWriter().write("asdasd");
+//                response.getWriter().write("asdasd");
 
                 PreparedStatement delete_booking = conn.prepareStatement("delete from bookingTable where venueId=?");
                 delete_booking.setString(1, venueId);

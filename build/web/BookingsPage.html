@@ -260,12 +260,12 @@
         xh.onload = function () {
             if (xh.readyState == 4 && xh.status == 200) {
                 var response = xh.responseText;
-                console.log(response);
+//                console.log(response);
                 if (response === "none") {
                     var h1 = document.createElement("h1");
                     document.querySelector(".main_screen").classList.add("setContentAtMiddle");
                     h1.className = "noneBooking";
-                    h1.innerText ="You do not any kind have booking yet.";
+                    h1.innerText ="You donot have any kind have booking yet.";
                     document.querySelector(".main_screen").appendChild(h1);
                 } else {
                     var div = document.createElement("div");
