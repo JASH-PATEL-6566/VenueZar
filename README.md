@@ -28,7 +28,7 @@ VenueZar is a comprehensive web-based venue booking and management system that c
 
 ## 🛠️ Technologies Used
 
-- **Backend**: Java Servlets, JSP
+- **Backend**: Java Servlets, JSP, JDBC
 - **Database**: MySQL
 - **Frontend**: HTML, CSS, JavaScript
 - **Security**: Password hashing with SHA-256
